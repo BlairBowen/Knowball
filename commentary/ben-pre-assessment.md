@@ -35,3 +35,25 @@ request forms, and a corporate planning portal. They were simple systems but req
 Entity Relationship Diagrams, normalization methods, and more. Those tools will be essential to the
 Knowball backend. We could store user data for leaderboards, cache commonly-named athletes, and
 more.
+
+We considered many projects from many sources, contacting faculty, nonprofits, and employers. Dr.
+Hawkins then gave what proved to be influential advice. He said the biggest factor in a successful
+capstone is remaining interested, and the surest way to guarantee that is by generating a project
+idea ourselves. So, we brainstormed. When doing so, we focused on some areas of collective interest:
+sports, music, and travel. Ideas like a playlist generator from user biometric data and a scout-film
+analysis tool for our football team were just pipped by Knowball – whose initial appeal was
+multifaceted. For one, we had fun miming the game, which confirmed its potential. Also, it didn’t
+have potential chokepoints like hardware or third parties. Ultimately, it got the team most excited.
+
+Knowball still needs to be scoped a bit. That’s a subject for our next meeting, which Dr. Hawkins
+will help with. Therefore, I can’t offer specifics on our approach, architecture, or solution with
+much accuracy. Still, there is plenty that we know. We know the game should be browser-based; we’d
+like it to have an AI/ML component, but won’t force it; we will pursue a turn-based, asynchronous,
+player-versus-player mechanic; it should have live leaderboards, per category. From those axioms,
+some obvious needs emerge. For example, we need a database to maintain leaderboards with ephemeral
+data for active games. An external data source, from which to draw player statistics, is another
+probable inclusion. Regardless, our objective remains the same. Each member’s priority is to receive
+an “A” grade. Anything greater results, like recognition at the expo, are a bonus. Therefore, our
+“good job” is conducting each phase – design, documentation, development, presentation –
+professionally and with commitment; our “done” is fulfilling our design, though it may change
+throughout the process. The game will be available to play, look polished, and run smoothly.
