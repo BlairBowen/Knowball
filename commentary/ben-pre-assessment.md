@@ -4,8 +4,8 @@
 
 My capstone project should be both a culmination and, critically, an extension of all I’ve learned
 as a student. It should use the aggregate of my academic and professional training to produce
-something significant quality, challenge, and ultimately newness. There are many steps to get there,
-but they all start with my choices today. My project should be partly unfamiliar. It’s my
+something of significant quality, challenge, and ultimately newness. There are many steps to get
+there, but they all start with my choices today. My project should be partly unfamiliar. It’s my
 responsibility to ensure that it includes things I was never formally taught. I believe Knowball, in
 its hypothetical form, is such a project. I’ve never made a game, worked with ML, or maintained an
 active web application – all of which will be necessary, assuming our design holds.
