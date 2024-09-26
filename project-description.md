@@ -8,6 +8,8 @@
 
 ## Topic
 
-Knowball is a simple game inspired by a simple truth: it’s fun to name increasingly obscure athletes, especially with friends.
-So, why not keep score? Our game uses sentiment analysis to score the obscurity of every athlete you can name in 60 seconds,
-given a category. Play to find out who knows ball.
+Knowball is a simple game inspired by a simple truth: it’s fun to name increasingly obscure
+athletes, especially with friends. So, why not keep score? Our obscurity engine considers everything
+about an athlete’s public record, from their statistics on the field to their following off it.
+Knowball will show you a prompt, pass your guesses through the engine, and return a score. Play to
+find out if you know ball.
