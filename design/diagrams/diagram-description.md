@@ -68,16 +68,17 @@ Database.
 This process checks that our trivia questions (prompts) are of appropriate difficulty for players. It does so by comparison with our
 Database (for number of correct responses) and with the Obscurity Engine (for obscurity of correct responses).
 
-#### Score Converter
+#### Convert Output to Score
 
-Once the obscurity score is calculated, the Score Converter translates the obscurity score into a user-friendly score. This score reflects how well the user guessed in relation to the obscurity of the athlete in question.
+The Obscurity Engine will spit out a coefficient that, while meaningful, might not be easy for the average player to decipher. So,
+such outputs will be run through a conversion process so that they may be returned to players as nice, whole numbers.
 
-#### External Data Sources
+#### Data Sources
 
-The system gathers data from the following external sources through API calls and web scraping:
+The system gathers data from the following external sources through API calls and web scraping.
 
-* Google Trends for real-time search interest
-* Sports references for athletic accolades and statistics
-* Social media platforms for follower counts and mentions
+- Google Trends for real-time search interest
+- Sports references for athletic accolades and statistics
+- Social media platforms for follower counts, mentions, engagement, etc
 
-Each of these components contributes to generating a final score for the user's guess, which is then displayed through the frontend.
+Each of these components contributes to generating a score for the player's inputs, which is displayed through the frontend.
