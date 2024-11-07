@@ -34,7 +34,19 @@ In that regard, social media analytics, search engine trends, bibliometric analy
 by design or otherwise, perform a similar computation. Knowball will stand out by consuming several such services for a balanced, richly
 informed take on obscurity. It is designed to be a source of truth, not a contributor.
 
-
 #### Approach
 
-asjdkjalsjdklajslkdjlkajsdjlkasjdklasjd
+As the above would suggest, most of Knowball’s technical nuance is in backend processes. Major architectural components include the
+obscurity engine (of course), a database, and a series of validators. The engine has already been discussed at length, so I’ll save the
+details for elsewhere in this repository. Still, I should say that it will ingest search engine data, social media analytics, and in-game
+statistics through a combination of API connections and web scraping. Both are approaches this group has experience with. The database,
+on the other hand, will serve a few purposes. First, it will cache engine outputs for popular athletes to avoid frequent recomputations.
+It will also house leaderboards and a repository of prompts (the trivia). Trivia generation is one reason we need validators. Whether it's
+us or an ML model writing the prompts, they must be of appropriate difficulty for players. So, we’ll implement “validator processes” that
+either accept or discard prompts based on the quantity and obscurity of athletes they reference.
+
+For the full complement of backend processes, see our design diagrams. Others, like data standardization, also have essential roles in the
+system. To avoid a redundant repository, though, I’ll wrap up by discussing the tech stack. At this point in our work, much of the tech stack
+is still to be determined. However, the most likely outcome is this: Vue.js in the front end, MySQL for the database, with Python being the
+backbone of most, if not all other components. As hinted earlier, there is potential to use ML in generating trivia, which would be written in
+Python as well. This section will be updated when such decisions are finalized.
