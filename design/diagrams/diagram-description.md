@@ -18,45 +18,55 @@ This layer defines how players will interact with the Knowball game.
 
 #### Input
 
-The user will be presented with a Vue UI with input fields to allow them to input their answer to the prompt.
+Players will enter athletes who fit a prompt in an interface similar to Wordle.
 
 #### Output
 
-The user will be presented with the following:
+The user will see...
 
-* The score they just received
-* Total Score
-* A Prompt to guide obscure athlete guesses
+- A prompt to which their inputs should respond.
+- The score earned by their most recently entered athlete.
+- Their total score for the prompt.
 
 ## Backend
 
-This layer describes how the system processes user input, interacts with external data sources, and calculates scores. It encompasses several key components that work together to validate user guesses, retrieve athlete data, and calculate an obscurity score.
+This layer defines how the system processes user input, interacts with data sources, and generates scores. It spans several key
+components that work together to validate user guesses, retrieve data, and compute obscurity.
 
 #### Query Manager
 
-The Query Manager is responsible for managing the flow of queries. It interacts with external APIs, web scrapers, and the Athlete Database to gather relevant data for the system. This data includes:
+The Query Manager is responsible for handling all queries. It interacts with data sources via APIs and/or web scraping, as well as our
+Database to gather relevant data for the system. Such data includes...
 
-* Athletes
-* Athlete performance statistics
-* Accolades
-* Social media activity
-* Trends in public awareness
-
-#### Data Standardization
-
-This component standardizes the data received from various sources, ensuring that data from different sports and leagues hold the same value before entering the Obscurity Engine
-
-#### Question Validator
-
-The Question Validator checks the validity of a Prompt the user sees. It does this by making sure a standard obscurity distribution and valid athlete count for a question is met
+- Athletes
+- Cached obscurity engine outputs
+- In-game leaderboards
+- Athletes' on-field statistics
+- Athletes' sporting achievements
+- Athletes' social media analytics
+- Search engine trends
+- More
 
 #### Obscurity Engine
 
-The Obscurity Engine works with the WIP (Work in Progress) Algorithm to calculate an obscurity score. This score is derived by analyzing how "well-known" an athlete is based on several factors, including:
-* Social media mentions
-* Google Trends data
-* Athletic accolades
-* Social media followers
+The Obscurity Engine quantifies athletes' public presence deterministically. To do so, it considers the data given above. The algorithm
+it will run is a work in progress and, later, will be tuned to align with our human interpretation of obscurity.
+
+#### Standardize Data
+
+This process standardizes data from our various sources. This is important because, when computing obscurity, different achievements hold
+different weight. For example, a Super Bowl will likely do more for an athlete's public presence than an MLS Cup. So, this process ensures
+contrasting data are transformed to a comparable scale.
+
+#### Validate Inputs
+
+This process checks that players' inputs are correct in response to the prompt they were given. It does so by comparison with our
+Database.
+
+#### Validate Trivia
+
+This process checks that our trivia questions (prompts) are of appropriate difficulty for players. It does so by comparison with our
+Database (for number of correct responses) and with the Obscurity Engine (for obscurity of correct responses).
 
 #### Score Converter
 
