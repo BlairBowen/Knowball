@@ -23,7 +23,7 @@ There is no shortage of sports trivia games you could play right now. Clearly, t
 the obscurity engine is. So, does something similar already exist? The short answer is no, not really; the long answer follows. A
 knee-jerk reaction to the prospect of computing something subtle and vague like obscurity is “Well, AI could probably handle it!”
 Transparently, our first designs were AI-based. With enough prompting, LLMs could estimate an athlete’s obscurity, but without the
-consistency or conciseness Knowball is targeting. Still, they could help with the question at hand: “Does Knowball exist?” Here’s what
+consistency or conciseness Knowball is targeting. Still, they can help with the question at hand: “Does Knowball exist?” Here’s what
 ChatGPT had to say.
 
 > There are a few approaches and technologies that aim to quantify the "obscurity" or "popularity" of individuals, though none are
