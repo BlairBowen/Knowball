@@ -1,12 +1,14 @@
-# Diagram Description: Knowball
+# Diagram Description
 
-## How To View The Diagrams
-The following is a description of the different compontents found within the diagrams and how they should be interpreted:
-* Stick figure - This represents the user
-* Vertical, rounded rectangle - This represents a process layer
-* Horizontal, sharp rectange - A single step of the process
-* Solid arrow - Indicates flow of data
-* Cylinder - Database
+This is your guide to understanding the diagrams in this folder. It includes a key and some discussion of essential components.
+
+## Key
+
+- Stick figure: The player
+- Vertical, rounded rectangle - This represents a process layer
+- Horizontal, sharp rectange - A single step of the process
+- Solid arrow - Indicates flow of data
+- Cylinder - Database
 
 ## Frontend Layer
 This layer defines how the user will interact with the Knowball game.
