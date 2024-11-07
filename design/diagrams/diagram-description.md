@@ -4,11 +4,13 @@ This is your guide to understanding the diagrams in this folder. It includes a k
 
 ## Key
 
-- Stick figure: The player
-- Vertical, rounded rectangle - This represents a process layer
-- Horizontal, sharp rectange - A single step of the process
-- Solid arrow - Indicates flow of data
-- Cylinder - Database
+- Dotted line = Frontend/Backend divider
+- Arrow = Data flow
+- Stick figure = Player
+- Rectangle = Process
+- Ellipse = Entity
+- Rounded rectangle = Cluster of processes and entities
+- Cylinder = Data
 
 ## Frontend Layer
 This layer defines how the user will interact with the Knowball game.
