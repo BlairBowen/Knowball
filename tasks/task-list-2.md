@@ -1,6 +1,6 @@
 # Task List
 
-The list below represents all of our currently forecasted deliverables, with who is responsible for leading them.
+The list below represents ***all of our currently forecasted deliverables***, with who is responsible for leading them.
 
 > The date of revising this list is November 11th, 2024. At this point, the inevitable minutia of implementing our design
 > still can't be forecasted perfectly. Each of the tasks below has the potential to be subdivided into further tasks. As
