@@ -1,10 +1,26 @@
-For our senior design project, the Knowball Obscure Athlete Game, there are four key constraints that may shape our design and implementation of this game.
+# ABET Concerns
 
-One of these constraints is **data availability**. To ensure that we have the widest range of obscure athletes possible, we need a comprehensive and accurate database containing athlete names, statistics, and accolades. Acquiring this data can be challenging, as many sports databases have restrictions, limited access, or incomplete records for lesser-known athletes. This constraint could influence our solution by requiring us to rely on open-source or paid data, which could either limit the range of data or incur more charges than we originally expected.
+***We have four main concerns that may constrain our development of Knowball.*** They are given below.
 
-Another constraint could be the **legality of data collection**. If we attempt to take an alternative route of web scraping to gather the necessary data from websites, we must ensure compliance with relevant laws and terms of service imposed by these sites. Unauthorized scraping could result in legal challenges or restrict future use of the website. This may alter our solution by forcing us to rely on paid sources to obtain the required data.
+**First, we are concerned about data availability.** As discussed elsewhere, the objective of playing Knowball is to name increasingly
+obscure athletes. So, we as developers must assemble enough data about athletes – their teams, statistics, achievements, search
+analytics, social media following, and more – to respond given obscure names. That’s inherently difficult; there will be less data
+about lesser-known athletes, even in the most comprehensive datasets. In addition, such datasets often have access limitations
+(see economics). This could require us to pursue alternate methods of sourcing data.
 
-This leads us to the constraint of the **economics of the project**. Some data sources may require subscriptions or licensing fees, and hosting the game could potentially lead to substantial server costs. Managing these expenses is essential for our project, especially since we only have access to limited personal funds for development. This could influence our solution by pushing us to find cost-effective or free solutions for data and hosting.
+**Second, we have a legality concern.** Web scraping is the likely solution to sourcing difficult data. However, doing so would require
+caution to ensure Knowball is legally permissible. We must only scrape from sites whose terms of service don’t prohibit it, whose data
+is publicly accessible, whose data isn’t protected against bots, and more. This, in itself, is a constraint that could influence the
+ultimate quality of our solution.
 
-One of our bigger constraints/challenges is the **differences in the weight of accolades across sports**. For example, an accolade in one sport (e.g., MVP titles in football) may be considered more or less significant than in another sport (e.g., MVP titles in basketball), thus affecting how obscure or well-known athletes are. These differences must be accounted for to ensure that our obscurity engine is fair across various prompts between sports. This influences our solution by requiring us to build in a weighting system that balances the significance of accolades across different sports.
+**Third, we are concerned about the economics of implementing and maintaining Knowball.** As previously suggested, the most comprehensive
+sports datasets will keep some, if not all of their data behind a paywall. In other words, quality data is likely to cost us. Quality
+infrastructure is likely to cost us, too. Hosting Knowball on a cloud platform like Azure or AWS will incur charges, even on the most
+basic plan. Balancing quality and cost-effectiveness is an engineering decision we’ll have to consider time and time again.
 
+**Fourth, and finally, we are concerned about data alignment.** Let me explain what that means. Knowball will compute obscurity for athletes
+in different sports, leagues, and countries. Does a Super Bowl have the same impact on one’s public image as a gold medal in Olympic
+fencing? It certainly doesn’t, even though those examples are similar achievements: a championship versus a championship. So, we must
+build a standardization process into Knowball, where statistics are weighted to reflect their origin. The danger here is those weights,
+potentially, being arbitrary. We can likely agree that fencing medalists are more obscure than Super Bowl champions, but by how much? Can
+we determine those differences algorithmically, perhaps by viewership data?
