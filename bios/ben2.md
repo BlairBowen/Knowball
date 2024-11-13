@@ -1,3 +1,9 @@
+# Ben Cimini
+
+The following documents ***my experience, skills, and capstone project interests***.
+
+> You can contact me at ciminibb@mail.uc.edu
+
 ## Work Experience
 
 #### The Lubrizol Corporation
@@ -36,3 +42,44 @@
 - Launched successful, safety-motivated device upgrades by presenting data visualizations to section superintendents
 - Analyzed past SPCC inspections to designate tanks with the most severe degradation trends as priorities
 - Restructured the plant’s rest-of-year schedule for capital projects to align with my study into priority tanks
+
+## Leadership Experience
+
+#### Tau Beta Pi
+
+###### President *(Aug 2024 – Present)*
+
+- Established a network of professors who help advertise the organization to students
+- Filled vacant officer positions that were left by the previous regime only 2 weeks after inheriting the presidency
+
+## Skills
+
+| Domain | List |
+| ------ | ---- |
+| Languages | Python, JavaScript, C/C++, SQL, HTML, CSS, Markdown, MATLAB, Assembly, Haskell |
+| Toolsets | Power Platform, SAP Commerce Cloud, Wireshark, GitHub, Azure DevOps, Databricks |
+| Nontechnical | Leadership, Presentations, Writing, Organization, Communication |
+
+## Interests
+
+#### Fields
+
+- Machine learning
+- Database design
+- Systems programming
+- Interactive devices
+
+#### Industries
+
+- Sports/performance analytics
+- Entertainment streaming services
+- Mechatronics
+- Medical technology
+- Travel networks
+
+#### Projects
+
+- An application of machine learning to sports analytics or content curation
+- Working with biometric data ingested from a physical, wearable monitor
+- Using Department of Transport APIs for a creative solution for travelers (e.g., predicting delays)
+- Further combinations of the above fields and industries
