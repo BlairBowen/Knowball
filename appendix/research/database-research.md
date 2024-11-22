@@ -6,7 +6,23 @@ This document summarizes our findings about ***which database frameworks are mos
 
 #### PostgreSQL
 
+PostgreSQL is robust, capable of handling complex queries and semi-structured data. It is an all-around option, with features
+for most, if not all parts of our design. For example, it is good at dealing with concurrent users, which our game will
+encounter.
+
 #### MySQL
+
+MySQL is simple, fast, and reliable. It is widely supported with mature tools. For ease-of-implementation, it is hard to beat.
+Ultimately, whether or not it's a good choice depends on the complexity of our queries and caching.
+
+#### Head to Head
+
+- I'm seeing that MySQL is good for read-heavy workloads while, again, that PostgreSQL is good for complex queries and transactions.
+- MySQL prioritizes speed and performance; PostgreSQL prioritizes data integrity.
+- PostgreSQL supports advanced data types like JSON and XML; MySQL also supports JSON.
+- In general, the pair are very similar.
+- PostgreSQL is usually the preference of enterprise database admins, concerned with business needs at scale.
+- MySQL is a popular choice for small to medium sized web applications.
 
 ## NoSQL Databases
 
