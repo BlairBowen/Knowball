@@ -4,6 +4,8 @@ This document summarizes our findings about ***which database frameworks are mos
 
 ## Relational Databases
 
+> ***Note: Our choice of host platform could make this decision moot!***
+> 
 > #### Conclusions
 > We will use MySQL as our primary database framework. Ultimately, the complexity of PostgreSQL is beyond our needs. MySQL is
 > more popular for lightweight web applications; PostgreSQL is more popular for large enterprise applications. Clearly, we are
