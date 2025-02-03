@@ -1,1 +1,75 @@
+# Database Glossary
 
+***This document defines all column names Knowball's database***, as some are rather vague in their abbreviation.
+
+## epl_player
+
+- **ID**: An integer number that uniquely identifies each player, assigned in alphabetical order.
+- **Player**: Each player's name.
+- **Until**: The most recent season that each player participated in.
+- **MP**: Matches Played by the player or squad.
+- **Min**: Minutes
+- **Start**: Game or games started by player.
+- **Sub**: Game or games player did not start, so as a substitute.
+- **Gls**: Goals scored.
+- **Ast**: Assists
+- **NPG**: Non-Penalty Goals
+- **PK**: Penalty Kicks made.
+- **Sh**: Shots total.
+- **SoT**: Shots on Target
+- **SoT%**: Percentage of shots that are on target.
+- **ShDist**: Average distance, in yards, from goal of all shots taken.
+- **FK**: Shots from Free Kicks.
+- **PaCmp**: Passes Completed including live ball passes (including crosses) as well as corner kicks, throw-ins, free kicks and goal kicks.
+- **PaCmp%**: Pass Completion Percentage.
+- **KP**: Key Passes, those that directly lead to a shot (assisted shots).
+- **Crs**: Completed crosses into the 18-yard box.
+- **PrgP**: Progressive Passes, which are completed passes that move the ball towards the opponent's goal line at least 10 yards from its furthest point in the last six passes, or any completed pass into the penalty area. Excludes passes from the defending 40% of the pitch.
+- **Car**: Carries, the number of times the player controlled the ball with their feet.
+- **TotDist**: Total Distance, in yards, a player moved the ball while controlling it with their feet, in any direction.
+- **PrgC**: Carries that move the ball towards the opponent's goal line at least 10 yards from its furthest point in the last six passes, or any carry into the penalty area. Excludes carries which end in the defending 50% of the pitch.
+- **Mis**: Number of times a player failed when attempting to gain control of a ball.
+- **Dis**: Number of times a player loses control of the ball after being tackled by an opposing player. Does not include attempted take-ons.
+- **TOnAtt**: Number of attempts to Take On defenders while dribbling.
+- **TOnSucc**: Number of defenders taken on successfully, by dribbling past them. Unsuccessful take-ons include attempts where the dribbler retained possession but was unable to get past the defender.
+- **TOnSucc%**: Percentage of Take-Ons completed successfully.
+- **Tkl**: Tackles, the number of players tackled.
+- **TklW**: Tackles in which the tackler's team won possession of the ball.
+- **Def_3rd**: Tackles in defensive 1/3 of the pitch.
+- **Mid_3rd**: Tackles in middle 1/3 of the pitch.
+- **Att_3rd**: Tackles in attacking 1/3 of the pitch.
+- **Blck**: Number of times blocking a shot by standing in its path.
+- **Int**: Interceptions
+- **Clr**: Clearances
+- **Err**: Errors leading to an opponent's shot.
+- **DuelW**: Aerials Duels Won
+- **DuelW%**: Percentage of Aerials Duels Won.
+- **CrdY**: Yellow Cards
+- **CrdR**: Red Cards
+- **Fls**: Fouls committed.
+- **Fld**: The number of times a player was Fouled.
+- **Off**: Offsides against a player. 
+- **OG**: Own Goals
+- **Recov**: Number of loose balls recovered.
+- **GA**: Goals Against
+- **Sv**: Saves
+- **Sv%**: Save Percentage
+- **CS**: Clean Sheets, full matches by goalkeeper where no goals are allowed.
+- **CS%**: Percentage of matches that result in clean sheets.
+- **Pos**: The player's Position(s) on the pitch.
+- **Team**: The Team(s) a player competed for.
+- **BdOr**: Balon d'Ors won, the award for the best player in the world for a given year.
+- **GBoot**: Premier League Golden Boots won, the top scorer award.
+- **GGlove**: Premier League Golden Gloves won, the top goalkeeper award.
+- **POTY**: Premier League Player of the Year awards won.
+- **TOTY**: Premier League Team of the Year inclusions.
+- **WC**: World Cups won.
+- **Euro**: European Championships won.
+- **UCL**: Champions League titles won.
+- **Prem**: Premier League titles won.
+- **IG**: Instagram followers.
+- **Wiki**: Last month's Wikipedia page views.
+
+## nba_player
+
+## nfl_player
