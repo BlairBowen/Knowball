@@ -102,7 +102,7 @@
 - **FT%**: Free Throw Percentage
 - **TS%**: True Shooting Percentage, a measure of shooting efficiency that takes into account 2-point field goals, 3-point field goals, and free throws.
 - **eFG%**: Effective Field Goal Percentage, this statistic adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal.
-- **Pos**: Position
+- **Pos**: The player's Position(s) on the court.
 - **Team**: The Team(s) a player competed for.
 - **MVP**: NBA Most Valuable Player awards won.
 - **ROY**: NBA Rookie of the Year awards won.
@@ -129,113 +129,55 @@
 - **SkO**: Times sacked (first recorded in 1969, player per game since 1981).
 - **QBWin**: Team wins in games started by this QB (regular season).
 - **GWD**: Game-winning drives led by quarterback.
+- **RuAtt**: Rushing Attempts (sacks not included in NFL).
+- **RuYds**: Rushing yards gained (sack yardage is not included by NFL).
+- **RuY/A**: Rushing Yards per Attempt
+- **RuTD**: Rushing Touchdowns
+- **RuY/G**: Rushing Yards per Game
+- **Tgt**: Pass Targets (since 1992, derived from NFL play-by-play data).
+- **Rec**: Receptions
+- **RecYds**: Receiving Yards
+- **Y/Rec**: Receiving Yards per Reception
+- **RecTD**: Receiving Touchdowns
+- **RecY/G**: Receiving Yards per Game
+- **FG**: Field Goals made.
+- **FG%**: Percentage of Field Goals made.
+- **2PM**: Two-point conversions made.
+- **Sfty**: Safeties scored by player/team.
+- **Pts**: Total points scored by all means.
+- **FantPts**: Fantasy Points
+- **SkD**: Sacks by defensive player (official since 1982, based on play-by-play, game film and other research since 1960).
+- **Solo**: Tackles
+- **Ast**: Assists on tackles.
+- **TFL**: Tackles For Loss, recorded for 95% of games from 1999-2007 and 100% since 2008.
+- **QBHit**: Quarterback Hits, recorded since 2006.
+- **IntD**: Passes intercepted on defense.
+- **Pick6**: Interceptions returned for touchdowns.
+- **PaDef**: Passes defended by a defensive player, since 1999.
+- **Fmb**: Number of times fumbled both lost and recovered by own team. These represent ALL fumbles by the player on offense, defense, and special teams.
+- **FR**: Fumbles recovered by a player or team (original fumble by either team).
+- **Scoop6**: Fumbles recovered resulting in a touchdown for the recoverer.
+- **FF**: Number of times forced a fumble by the opposition recovered by either team.
+- **PntYds**: Total punt yardage.
+- **Y/Pnt**: Yards per Punt
+- **Blck**: Times a punter's punts were blocked.
+- **APYd**: All-purpose yards: rushing, receiving, kick, punt, interception, and fumble return yardage.
+- **RetYds**: Combined kick and punt return yardage.
+- **Pos**: The player's Position(s) on the field.
+- **Team**: The Team(s) a player competed for.
+- **MVP**: NFL Most Valuable Player awards won.
+- **OPOY**: NFL Offensive Player of the Year awards won.
+- **DPOY**: NFL Defensive Player of the Year awards won.
+- **OROY**: NFL Offensive Rookie of the Year awards won.
+- **DROY**: NFL Defensive Rookie of the Year awards won.
+- **AP1**: First-Team All-Pro inclusions.
+- **SB**: Super Bowls won.
+- **IG**: Instagram followers.
+- **Wiki**: Last month's Wikipedia page views.
 
-Rushing
-Att -- Rushing Attempts (sacks not included in NFL)
-Yds -- Rushing Yards Gained (sack yardage is not included by NFL)
-Y/A -- Rushing Yards per Attempt
-Minimum 6.25 rushes per game scheduled to qualify as leader.
-Minimum 750 rushes to qualify as career leader.
-TD -- Rushing Touchdowns
-Y/G -- Rushing Yards per Game
-(minimum half a game per game scheduled to qualify as leader)
-(Rushing Yards)/(Games Played)
-1D -- First downs rushing
-Succ% -- Rushing Success Rate
-A successful rush gains least 40% of yards required on 1st down, 60% of yards required on 2nd down, and 100% on 3rd or 4th down. Denominator is rushing attempts.
-Receiving
-Tgt -- Pass Targets (since 1992, derived from NFL play-by-play data)
-Rec -- Receptions
-Yds -- Receiving Yards
-Y/R -- Receiving Yards per Reception
-Minimum 1.875 catches per game scheduled to qualify as leader.
-Minimum 200 receptions to qualify as career leader.
-TD -- Receiving Touchdowns
-Y/G -- Receiving Yards per Game
-(minimum half a game played per game scheduled to qualify as leader, 32 games for career leaders)
-(Receiving Yards)/(Games Played)
-Ctch% -- Catch%, receptions divided by targets (since 1992)
-Y/Tgt -- Receiving Yards per Target (target numbers since 1992)
-1D -- First downs receiving
-Succ% -- Receiving Success Rate
-A successful reception gains at least 40% of yards required on 1st down, 60% of yards required on 2nd down, and 100% on 3rd or 4th down. Denominator is targets.
-TD -- Touchdowns of every type
-PAT
-XPM -- Extra Points Made
-XPA -- Extra Points Attempted
-Kicking
-XP% -- Extra Point Percentage
-(Extra Points Made)/(Extra Points Attempted)
-Minimum 1.5 attempts per game scheduled to be a leader.
-FG
-FGM -- Field Goals Made
-FGA -- Field Goals Attempted
-Kicking
-FG% -- Percentage of field goals made, 100*(FGM/FGA)
-Minimum 0.75 attempts per game scheduled to qualify as a leader.
-Minimum 100 FGA to qualify as career leader.
-Other Scoring
-2PM -- Two-Point Conversions Made
-Sfty -- Safeties scored by player/team
-Scoring
-Pts -- Total points scored by all means
-Fantasy
-FantPt -- Fantasy points:
-1 point per 25 yards passing
-4 points per passing touchdown
--2 points per interception thrown
-1 point per 10 yards rushing/receiving
-6 points per TD
-2 points per two-point conversion
--2 points per fumble lost (est. prior to 1994)
-PPR -- Fantasy points (PPR scoring):
-1 point per 25 yards passing
-4 points per passing touchdown
--2 points per interception thrown
-1 point per reception
-1 point per 10 yards rushing/receiving
-6 points per TD
-2 points per two-point conversion
--2 points per fumble lost (est. prior to 1994)
-Fantasy per Game
-FantPt -- Fantasy points per game played
-PPR/G -- PPR Fantasy points per game played, see glossary for scoring details
-Sacks
-Sk -- Sacks (official since 1982,
-based on play-by-play, game film
-and other research since 1960)
-Tackles
-Solo -- Tackles
-Before 1994: unofficial and inconsistently recorded from team to team. For amusement only.
-1994-now: unofficial but consistently recorded.
-Ast -- Assists on tackles
-Before 1994: combined with solo tackles
-1994-now: unofficial, but consistently recorded
-Comb -- Tackles
-Combined solo + assisted tackles
-Prior to 1994, all tackles are put into 'combined', though
-they are unofficial and inconsistently recorded from team to team. For amusement only.
-TFL -- Tackles For Loss, recorded for 95% of games from 1999-2007 and 100% since 2008
-QBHits -- Quarterback hits, recorded since 2006
-Def Interceptions
-Int -- Passes intercepted on defense
-Yds -- Yards interceptions were returned
-IntTD -- Interceptions returned for touchdowns
-PD -- Passes defended by a defensive player, since 1999
-Fumbles
-Fmb -- Number of times fumbled both lost and recovered by own team
-These represent ALL fumbles by the player on offense, defense, and special teams.
-Available for player games since 1989.
-FR -- Fumbles recovered by a Player or Team
-Original fumble by either team
-Yds -- Yards recovered fumbles were returned
-FRTD -- Fumbles recovered resulting in a touchdown for the recoverer
-FF -- Number of times forced a fumble by the opposition recovered by either team
-Touch -- Touches: Rushing Attempts and Receptions
-TotOff -- Total Offense
-Rush Yards + Passing Yards - Yards Lost to Sacks
-YScm -- Yards from Scrimmage: Receiving and Rushing Yards
-APYd -- All-purpose yards: Rushing, Receiving and Kick, Punt, Interception, and Fumble Return Yardage
-Returns
-RtY -- Combined Kick and Punt Return Yardage
-Pos -- Position
+## leaderboard
+
+- **ID**: A unique identifier for each score in the leaderboard.
+- **Name**: The name of the user who achieved the archived score.
+- **Score**: The score that earned a place on the leaderboard.
+- **League**: The league corresponding to the game mode in which the score was earned.
