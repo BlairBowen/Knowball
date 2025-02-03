@@ -72,4 +72,44 @@
 
 ## nba_player
 
+- **ID**: An integer number that uniquely identifies each player, assigned in alphabetical order.
+- **Player**: Each player's name.
+- **Until**: The most recent season that each player participated in.
+- **G**: Games
+- **GS**: Games Started
+- **All_Star**: All-Star team selections.
+- **MP**: Minutes Played
+- **FG**: Field Goals
+- **FGA**: Field Goal Attempts
+- **2P**: 2-Point Field Goals
+- **2PA**: 2-Point Field Goal Attempts
+- **3P**: 3-Point Field Goals
+- **3PA**: 3-Point Field Goal Attempts
+- **FT**: Free Throws
+- **FTA**: Free Throw Attempts
+- **ORB**: Offensive Rebounds
+- **DRB**: Defensive Rebounds
+- **TRB**: Total Rebounds
+- **AST**: Assists
+- **STL**: Steals
+- **BLK**: Blocks
+- **TOV**: Turnovers
+- **PF**: Personal Fouls
+- **PTS**: Points
+- **FG%**: Field Goal Percentage
+- **2P%**: 2-Point Field Goal Percentage
+- **3P%**: 3-Point Field Goal Percentage
+- **FT%**: Free Throw Percentage
+- **TS%**: True Shooting Percentage, a measure of shooting efficiency that takes into account 2-point field goals, 3-point field goals, and free throws.
+- **eFG%**: Effective Field Goal Percentage, this statistic adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal.
+- **Pos**: Position
+- **Team**: The Team(s) a player competed for.
+- **MVP**: NBA Most Valuable Player awards won.
+- **ROY**: NBA Rookie of the Year awards won.
+- **DPOY**: NBA Defensive Player of the Year awards won.
+- **All_NBA**: All-NBA team inclusions across first, second, and third teams.
+- **Champ**: NBA Championships won.
+- **IG**: Instagram followers.
+- **Wiki**: Last month's Wikipedia page views.
+
 ## nfl_player
