@@ -8,7 +8,16 @@ function App() {
     <div className="min-h-screen flex-col items-center justify-center bg-gradient-to-r from-blue-300 to-green-300">
       <TitleCard />
       <QuestionBox />
-      <InputBox />
+
+      {/* Columnar alignment for input and answer boxes. */}
+      <div className="flex w-full">
+        <div className="w-1/2">
+          <InputBox />
+        </div>
+        <div className="w-1/2">
+          Testing the columnar alignment out with some random text! Don't mind me!
+        </div>
+      </div>
     </div>
   );
 }
