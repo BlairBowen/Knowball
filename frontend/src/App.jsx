@@ -1,12 +1,14 @@
 import React from 'react';
 import TitleCard from './components/TitleCard';
-import Question from './components/Question';
+import QuestionBox from './components/QuestionBox';
+import InputBox from './components/InputBox';
 
 function App() {
   return (
     <div className="min-h-screen flex-col items-center justify-center bg-gradient-to-r from-blue-300 to-green-300">
       <TitleCard />
-      <Question />
+      <QuestionBox />
+      <InputBox />
     </div>
   );
 }
