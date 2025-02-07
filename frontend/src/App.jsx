@@ -2,6 +2,7 @@ import React from 'react';
 import TitleCard from './components/TitleCard';
 import QuestionBox from './components/QuestionBox';
 import InputBox from './components/InputBox';
+import AnswersList from './components/AnswersList';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <InputBox />
         </div>
         <div className="w-1/2">
-          Testing the columnar alignment out with some random text! Don't mind me!
+          <AnswersList />
         </div>
       </div>
     </div>
