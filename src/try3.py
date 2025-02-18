@@ -113,7 +113,12 @@ def fetch_roster_from_wikipedia(team_wiki_title, sport):
     # Find the correct roster table
     if sport != "epl":
         # tables = soup.find_all("table", {"class": "toccolours"})
-        roster_table = soup.find("table", {"class": "toccolours"})
+        for table in soup.find_all("table", {"class": "toccolours"}):
+        # Check if the table has a caption or header mentioning "Roster" or "First-team squad"
+            caption = table.find("caption")
+            if caption and "roster" in caption.text.lower():
+                roster_table = table
+                break
     elif sport == "epl":
         # tables = soup.find_all("table", {"class": "toccolours"})
         roster_table = soup.find("table", {"role": "presentation"})
