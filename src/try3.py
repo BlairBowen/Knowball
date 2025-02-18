@@ -250,3 +250,36 @@ for team, wiki_title in teams.items():
     all_team_rosters[team] = team_roster
     df = pd.DataFrame(all_team_df)
     df.to_csv(f"{sport}.csv")
+
+    #     # Database connection parameters
+    # server = "knowball.database.windows.net"
+    # database = "knowball-sql"
+    # username = "kbserver"
+    # password = "ciminibb$bowenbv$king3ss$"
+
+    # # URL Encode Password (if it has special characters)
+    # encoded_password = urllib.parse.quote_plus(password)
+
+    # # ✅ Correct ODBC Connection String
+    # conn_str = (
+    #     "DRIVER={ODBC Driver 18 for SQL Server};"
+    #     f"SERVER={rc.sql_server};"
+    #     f"DATABASE={rc.sql_database};"
+    #     f"UID={rc.sql_username};"
+    #     f"PWD={rc.sql_password};"
+    #     "Encrypt=yes;"
+    #     "TrustServerCertificate=no;"
+    #     "Connection Timeout=30;"
+    # )
+
+    # # Create SQLAlchemy engine
+    # engine = create_engine(f"mssql+pyodbc:///?odbc_connect={conn_str}")
+
+    # # ✅ Use `connect()` before executing queries
+    # try:
+    #     with engine.connect() as conn:
+    #         result = conn.execute(text("SELECT * FROM nba_player"))
+    #         df = pd.DataFrame(result.fetchall(), columns=result.keys())
+    #     print(df.head())
+    # except Exception as e:
+    #     print(f"Connection failed: {e}")
