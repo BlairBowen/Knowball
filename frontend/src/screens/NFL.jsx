@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import TitleCard from '../components/TitleCard';
-import QuestionBox from '../components/QuestionBox';
-import InputBox from '../components/InputBox';
-import AnswersList from '../components/AnswersList';
+import QuestionNFL from '../components/QuestionNFL';
+import InputsNFL from '../components/InputsNFL';
+import AnswersNFL from '../components/AnswersNFL';
 
 const NFL = () => {
   // State to hold the list of answers
@@ -12,17 +12,17 @@ const NFL = () => {
     <div className='min-h-screen w-screen bg-gradient-to-r from-blue-300 to-green-300'>
       <div className='max-w-400 flex flex-col'>
         <TitleCard />
-        <QuestionBox />
+        <QuestionNFL />
 
         {/* Columnar alignment for input and answer boxes. */}
         <div className='flex'>
           <div className='w-1/2'>
-            {/* Pass setAnswers to InputBox to handle updates */}
-            <InputBox setAnswers={setAnswers} />
+            {/* Pass setAnswers to InputsNFL to handle updates */}
+            <InputsNFL setAnswers={setAnswers} />
           </div>
           <div className='w-1/2'>
-            {/* Pass answers to AnswersList to display them */}
-            <AnswersList answers={answers} />
+            {/* Pass answers to AnswersNFL to display them */}
+            <AnswersNFL answers={answers} />
           </div>
         </div>
       </div>
