@@ -1,6 +1,6 @@
 import React from "react";
 
-const AnswersList = ({ answers }) => {
+const AnswersEPL = ({ answers }) => {
   // Number of answer slots
   const totalSlots = 5;
 
@@ -26,4 +26,4 @@ const AnswersList = ({ answers }) => {
   );
 };
 
-export default AnswersList;
+export default AnswersEPL;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const InputBox = ({ setAnswers }) => {
+const InputsEPL = ({ setAnswers }) => {
   // Define all state variables, which come bundled with associated setters.
   const [input, setInput] = useState(""); // Initialize to empty string
   const [players, setPlayers] = useState([]); // Initialize to empty list
@@ -14,7 +14,7 @@ const InputBox = ({ setAnswers }) => {
       try {
         // Make an HTTP request to the specified Azure Function and save the
         // response to a variable of the same name.
-        const response = await fetch(import.meta.env.VITE_AZURE_FUNCTION_URL);
+        const response = await fetch(import.meta.env.VITE_AZURE_EPL_FUNCTION_URL);
 
         // Parse the response body as JSON to, officially, gather the list of
         // players.
@@ -101,4 +101,4 @@ const InputBox = ({ setAnswers }) => {
   );
 };
 
-export default InputBox;
+export default InputsEPL;
