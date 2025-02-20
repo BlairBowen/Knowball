@@ -8,17 +8,17 @@ league can be inferred from the game mode when writing to the leaderboard.
 title: Knowball's simple database
 ---
 erDiagram
-  NBA-PLAYERS {
+  NBA-PLAYER {
     int ID
     string Player
     types StatsAndInfo
   }
-  NFL-PLAYERS {
+  NFL-PLAYER {
     int ID
     string Player
     types StatsAndInfo
   }
-  EPL-PLAYERS {
+  EPL-PLAYER {
     int ID
     string Player
     types StatsAndInfo
@@ -27,6 +27,12 @@ erDiagram
     int ID
     string Name
     int Score
+    string League
+  }
+  TRIVIA {
+    int ID
+    string Question
+    string Query
     string League
   }
 
