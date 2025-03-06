@@ -33,7 +33,16 @@ const InputsNBA = ({ players, correctAnswers, setAnswers }) => {
     // Submit by saving <input> as an answer, but only when it's valid. The
     // validity check is that there are players in <dropdown>.
     if (dropdown.length > 0) {
-      setAnswers((prevAnswers) => [...prevAnswers, dropdown[0]]);
+      // Being valid doesn't mean an answer is correct. So, we must evaluate
+      // correctness of the submission.
+      const isCorrect = correctAnswers.includes(dropdown[0]);
+      
+      // Submissions should be passed to AnswersNBA with their correctness
+      // property.
+      setAnswers((prevAnswers) => [
+        ...prevAnswers,
+        { player: dropdown[0], isCorrect }
+      ]);
       setInput(""); // Clear the input field after submission
     }
   };
@@ -57,7 +66,15 @@ const InputsNBA = ({ players, correctAnswers, setAnswers }) => {
                 className="hover:bg-gray-200 cursor-pointer"
                 key={player}
                 onClick={() => {
-                  setAnswers((prevAnswers) => [...prevAnswers, player]);
+                  // Clicking is a separate means of submitting an answer. So,
+                  // we must redefine the correctness check. However, the
+                  // dropdown is irrelevant here.
+                  const isCorrect = correctAnswers.includes(player);
+
+                  setAnswers((prevAnswers) => [
+                    ...prevAnswers,
+                    { player, isCorrect }
+                  ]);
                   setInput(""); // Clear input after selection
                 }}
               >
