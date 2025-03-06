@@ -5,9 +5,12 @@ import InputsNBA from '../components/InputsNBA';
 import AnswersNBA from '../components/AnswersNBA';
 
 const NBA = () => {
+  // Define state variables and setters for all data to be fetched from the
+  // database.
   const [players, setPlayers] = useState([]);
   const [question, setQuestion] = useState("");
   const [correctAnswers, setCorrectAnswers] = useState([]);
+
   const [answers, setAnswers] = useState([]); // Not from database
 
   // Use an Azure Function to fetch all active players from the database.
@@ -41,6 +44,8 @@ const NBA = () => {
     fetchTrivia();
   }, []);
 
+  // Render the screen while passing the fetched data down to the components
+  // within it.
   return (
     <div className='min-h-screen w-screen bg-gradient-to-r from-blue-300 to-green-300'>
       <div className='max-w-400 flex flex-col'>
