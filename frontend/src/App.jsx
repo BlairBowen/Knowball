@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./screens/Home";
-import NBA from "./screens/nba";
+import NBA from "./screens/NBA";
 import EPL from "./screens/EPL";
 import NFL from "./screens/NFL";
 
