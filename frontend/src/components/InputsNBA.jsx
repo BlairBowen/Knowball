@@ -14,7 +14,7 @@ const InputsNBA = ({ setAnswers }) => {
       try {
         // Make an HTTP request to the specified Azure Function and save the
         // response to a variable of the same name.
-        const response = await fetch(import.meta.env.VITE_AZURE_NBA_FUNCTION_URL);
+        const response = await fetch(import.meta.env.VITE_AZURE_NBA_PLAYERS_URL);
 
         // Parse the response body as JSON to, officially, gather the list of
         // players.
