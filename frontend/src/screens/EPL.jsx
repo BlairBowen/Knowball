@@ -74,6 +74,7 @@ const EPL = () => {
               players={players}
               correctAnswers={correctAnswers}
               setAnswers={setAnswers}
+              answers={answers}
             />
           </div>
           <div className='w-1/2'>
