@@ -1,6 +1,6 @@
 import React from "react";
 
-const AnswersNBA = ({ answers }) => {
+const AnswersNBA = ({ answers, score }) => {
   // Number of answer slots
   const totalSlots = 5;
 
@@ -9,7 +9,7 @@ const AnswersNBA = ({ answers }) => {
       <div className="w-full border-4 border-black rounded-lg p-4">
         <ul className="space-y-2 font-pixel text-black">
           <li>
-            <div className="p-4">Total</div>
+            <div className="p-4">Score: {score}</div>
           </li>
           {/* Render answer slots */}
           {[...Array(totalSlots)].map((_, index) => {
@@ -27,7 +27,7 @@ const AnswersNBA = ({ answers }) => {
                   }`}
                 >
                   {/* Render the answer or a blank space if the slot is not filled */}
-                  {answer ? answer.player : "___"}
+                  {answer ? (answer.isCorrect ? `${answer.player} +${answer.score}` : answer.player) : "___"}
                 </div>
               </li>
             );
