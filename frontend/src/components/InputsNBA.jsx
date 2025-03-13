@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const InputsNBA = ({ players, correctAnswers, setAnswers }) => {
+const InputsNBA = ({ players, correctAnswers, setAnswers, answers }) => {
   // Define all state variables, which come bundled with associated setters.
   const [input, setInput] = useState(""); // Initialize to empty string
   const [dropdown, setDropdown] = useState([]); // Initialize to empty list
@@ -32,6 +32,11 @@ const InputsNBA = ({ players, correctAnswers, setAnswers }) => {
     if (dropdown.length > 0) {
       // Save the submission to a local variable for ease of use.
       const selectedPlayer = dropdown[0];
+
+      // Check if the submission is a duplicate before continuing.
+      if (answers.some(answer => answer.player === selectedPlayer[0])) {
+        return;
+      }
 
       // Define a correctness property for the submission.
       const isCorrect = correctAnswers.includes(selectedPlayer[0]);
@@ -69,14 +74,15 @@ const InputsNBA = ({ players, correctAnswers, setAnswers }) => {
                   // Clicking is a separate means of submitting an answer. So,
                   // we must redefine previous event handling behavior. 
                   const selectedPlayer = player;
+                  if (answers.some(answer => answer.player === selectedPlayer[0])) {
+                    return;
+                  }
                   const isCorrect = correctAnswers.includes(selectedPlayer[0]);
-
                   setAnswers((prevAnswers) => [
                     ...prevAnswers,
                     { player: selectedPlayer[0], score: selectedPlayer[1], isCorrect }
                   ]);
-            
-                  setInput(""); // Clear the input field after submission
+                  setInput("");
                 }}
               >
                 {player[0]} {/* Display player name */}
