@@ -10,8 +10,10 @@ const NFL = () => {
   const [players, setPlayers] = useState([]);
   const [question, setQuestion] = useState("");
   const [correctAnswers, setCorrectAnswers] = useState([]);
-
-  const [answers, setAnswers] = useState([]); // Not from database
+  
+  // These don't come from the database!
+  const [score, setScore] = useState(0);
+  const [answers, setAnswers] = useState([]);
 
   // Use an Azure Function to fetch all active players from the database.
   useEffect(() => {
@@ -44,6 +46,18 @@ const NFL = () => {
     fetchTrivia();
   }, []);
 
+  // Compute a user's score from only their correct answers. This hook will run
+  // every time <answers> is updated.
+  useEffect(() => {
+    // Define variable <newScore>, which is the summation on <answers> when
+    // filtered by correctness.
+    const newScore = answers
+      .filter((answer) => answer.isCorrect)
+      .reduce((acc, answer) => acc + answer.score, 0);
+
+    setScore(newScore); // Update the state variable with the summation
+  }, [answers]); // Trigger whenever answers are updated
+
   // Render the screen while passing the fetched data down to the components
   // within it.
   return (
@@ -64,7 +78,7 @@ const NFL = () => {
           </div>
           <div className='w-1/2'>
             {/* Pass answers to AnswersNFL to display them */}
-            <AnswersNFL answers={answers} />
+            <AnswersNFL answers={answers} score={score} />
           </div>
         </div>
       </div>

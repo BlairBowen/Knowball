@@ -12,9 +12,8 @@ const InputsEPL = ({ players, correctAnswers, setAnswers }) => {
       // Use the setter on state variable <dropdown> in order to change it.
       setDropdown(
         players.filter((player) =>
-          // This is essentially saying, "if the input exists anywhere in the
-          // name of a given player - include that player."
-          player.toLowerCase().includes(input.toLowerCase())
+          // Access player name as player[0], which is the name in the tuple.
+          player[0].toLowerCase().includes(input.toLowerCase())
         )
       );
     } else {
@@ -23,26 +22,27 @@ const InputsEPL = ({ players, correctAnswers, setAnswers }) => {
   }, [input, players]); // Dependencies on <input> and <players> ensures that
                         // <dropdown> is updated on every relevant change
 
-  // Execute the submit behavior on the event in which the enter key is
-  // pressed.
+  // Execute the submit behavior on the event in which the enter key is pressed.
   const submit = (e) => {
-    // Block the default form submission behavior, in which the page is
-    // reloaded.
+    // Block the default form submission behavior, in which the page is reloaded.
     e.preventDefault();
 
     // Submit by saving <input> as an answer, but only when it's valid. The
     // validity check is that there are players in <dropdown>.
     if (dropdown.length > 0) {
-      // Being valid doesn't mean an answer is correct. So, we must evaluate
-      // correctness of the submission.
-      const isCorrect = correctAnswers.includes(dropdown[0]);
-      
-      // Submissions should be passed to AnswersEPL with their correctness
-      // property.
+      // Save the submission to a local variable for ease of use.
+      const selectedPlayer = dropdown[0];
+
+      // Define a correctness property for the submission.
+      const isCorrect = correctAnswers.includes(selectedPlayer[0]);
+
+      // Add the submission to the list of answers with its player name,
+      // obscurity score, and correctness property.
       setAnswers((prevAnswers) => [
         ...prevAnswers,
-        { player: dropdown[0], isCorrect }
+        { player: selectedPlayer[0], score: selectedPlayer[1], isCorrect }
       ]);
+
       setInput(""); // Clear the input field after submission
     }
   };
@@ -64,21 +64,22 @@ const InputsEPL = ({ players, correctAnswers, setAnswers }) => {
             {dropdown.map((player) => (
               <li
                 className="hover:bg-gray-200 cursor-pointer"
-                key={player}
+                key={player[0]} // Use player name as the key
                 onClick={() => {
                   // Clicking is a separate means of submitting an answer. So,
-                  // we must redefine the correctness check. However, the
-                  // dropdown is irrelevant here.
-                  const isCorrect = correctAnswers.includes(player);
+                  // we must redefine previous event handling behavior. 
+                  const selectedPlayer = player;
+                  const isCorrect = correctAnswers.includes(selectedPlayer[0]);
 
                   setAnswers((prevAnswers) => [
                     ...prevAnswers,
-                    { player, isCorrect }
+                    { player: selectedPlayer[0], score: selectedPlayer[1], isCorrect }
                   ]);
-                  setInput(""); // Clear input after selection
+            
+                  setInput(""); // Clear the input field after submission
                 }}
               >
-                {player}
+                {player[0]} {/* Display player name */}
               </li>
             ))}
           </ul>
