@@ -96,7 +96,7 @@ const NBA = () => {
 
         {gameOver && (
           <div className="fixed inset-0 flex items-center justify-center z-50">
-              <div className="bg-gray-100 border-4 border-black rounded-lg p-4 w-200 text-black font-pixel !shadow-2xl shadow-yellow-300">
+              <div className="bg-gray-100 border-4 border-black rounded-lg p-4 w-200 text-black font-pixel !shadow-2xl shadow-orange-400">
                   <h2 className="text-center text-2xl mb-4">Your Score: {score}</h2>
                   <div className="flex justify-between gap-4">
                       <button
