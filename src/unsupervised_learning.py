@@ -55,7 +55,7 @@
 
 import sys
 import os
-import urllib.parse
+# import urllib.parse
 import time
 import pandas as pd
 from sqlalchemy import create_engine, text
@@ -142,4 +142,79 @@ def fuzzy_merge(df1, df2, key1, key2, threshold=80):
     merged_df = merged_df.loc[:, ~merged_df.columns.duplicated()]
 
     return merged_df
+
+
+def fuzzy_merge_best_available(df1, df2, key1, key2, team_col1, team_col2, team_mapping, threshold=80):
+    """
+    Perform a fuzzy merge on two DataFrames, ensuring players are matched correctly by team.
+    If no exact team match is found, assign the best available unmatched row.
+    Ensures each row in df2 is used only once to prevent duplicates.
+
+    Args:
+        df1 (pd.DataFrame): First DataFrame (team abbreviations).
+        df2 (pd.DataFrame): Second DataFrame (full team names).
+        key1 (str): Column name in df1 to match (e.g., "Player").
+        key2 (str): Column name in df2 to match (e.g., "Player").
+        team_col1 (str): Column name in df1 containing team abbreviations.
+        team_col2 (str): Column name in df2 containing full team names.
+        team_mapping (dict): Mapping of team abbreviations (keys) to full names (values).
+        threshold (int): Minimum similarity score (0-100).
+
+    Returns:
+        pd.DataFrame: Merged DataFrame with the best available match.
+    """
+    matches = []
+    used_indices = set()  # Track used rows in df2
+
+    for index, row in df1.iterrows():
+        player_name = row[key1]
+        team_abbreviation = row[team_col1]  # Team abbreviation from df1
+        
+        # Fuzzy match player name
+        best_match = process.extractOne(player_name, df2[key2], scorer=fuzz.ratio)
+        
+        if best_match and best_match[1] >= threshold:
+            matched_player = best_match[0]
+
+            # Get all rows from df2 where the player name matches
+            potential_matches = df2[df2[key2] == matched_player]
+
+            # Convert abbreviation to full team name
+            full_team_name = team_mapping.get(team_abbreviation, None)
+
+            # Filter for valid team matches
+            valid_matches = potential_matches[potential_matches[team_col2] == full_team_name]
+
+            if not valid_matches.empty:
+                # Assign only the first unused match
+                for idx, match_row in valid_matches.iterrows():
+                    if idx not in used_indices:
+                        used_indices.add(idx)
+                        matches.append((player_name, matched_player, best_match[1], match_row[team_col2], idx, index))
+                        break
+            else:
+                # If no exact team match, find the best available unmatched row
+                for idx, match_row in potential_matches.iterrows():
+                    if idx not in used_indices:
+                        used_indices.add(idx)
+                        matches.append((player_name, matched_player, best_match[1], match_row[team_col2], idx, index))
+                        break
+
+    # Create a DataFrame with matches
+    matched_df = pd.DataFrame(matches, columns=[key1, key2, "Match Score", team_col2, "df2_index", "df1_index"])
+
+    # Merge the matched results with both dataframes
+    merged_df = df1.merge(matched_df, left_index=True, right_on="df1_index", how="inner")
+    merged_df = df2.merge(merged_df, left_index=True, right_on="df2_index", how="inner")
+    # merged_df = df1.merge(matched_df.drop(columns=["df2_index"]), on=key1).merge(df2, left_on=key2, right_on=key2)
+
+    # Drop duplicate columns if they exist
+    merged_df = merged_df.loc[:, ~merged_df.columns.duplicated()]
+
+    # # Ensure uniqueness by dropping any remaining duplicates
+    # merged_df = merged_df.drop_duplicates(subset=[key1, key2, team_col2])
+
+    return merged_df
+
+
 

@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import pandas as pd
+import re
+import unicodedata
 
 # Step 1: Define All NBA Team Wikipedia Pages
 nba_teams = {
@@ -96,12 +98,11 @@ epl_teams = {
 }
 
 
-
-# Step 2: Scrape Roster from Wikipedia (with player links)
 def fetch_roster_from_wikipedia(team_wiki_title, sport):
-    """Scrape the roster from an NBA team's Wikipedia page, including player Wikipedia links."""
+    """Scrape the roster from a team's Wikipedia page, including player Wikipedia links."""
+    
     url = f"https://en.wikipedia.org/wiki/{team_wiki_title}"
-    headers = {"User-Agent": "MyNBAStatsApp/1.0 (myemail@example.com)"}
+    headers = {"User-Agent": "MySportsStatsApp/1.0 (myemail@example.com)"}
 
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
@@ -110,56 +111,74 @@ def fetch_roster_from_wikipedia(team_wiki_title, sport):
 
     soup = BeautifulSoup(response.text, "html.parser")
 
-    # Find the correct roster table
-    if sport != "epl":
-        # tables = soup.find_all("table", {"class": "toccolours"})
+    # Determine the correct roster table based on the sport
+    roster_table = None
+    if sport == "epl":
+        roster_table = soup.find("table", {"role": "presentation"})
+    else:
         for table in soup.find_all("table", {"class": "toccolours"}):
-        # Check if the table has a caption or header mentioning "Roster" or "First-team squad"
             caption = table.find("caption")
             if caption and "roster" in caption.text.lower():
                 roster_table = table
                 break
-    elif sport == "epl":
-        # tables = soup.find_all("table", {"class": "toccolours"})
-        roster_table = soup.find("table", {"role": "presentation"})
-    else:
-        roster_table = None
-
-    # roster_table = tables[0]
-
-    # for table in tables:
-    #     if table.find("th") and "No." in table.text and "Pos." in table.text:  # Check if table contains headers
-    #         roster_table = table
-    #         break
 
     if not roster_table:
         print(f"Could not find roster table for {team_wiki_title}")
         return None
+    
 
-    # Extract player names and Wikipedia links
+
+    # Extract players based on sport
     if sport == "nba":
-        players = []
-        for row in roster_table.find_all("tr")[2:]:  # Skip header row
-            cols = row.find_all("td")
-            if len(cols) > 3:
-                player_name = cols[2].text.strip()
-                player_link = cols[2].find("a")["href"] if cols[2].find("a") else None
-
-                if player_link:
-                    player_link = "https://en.wikipedia.org" + player_link  # Make full URL
-
-                player_name = player_name.replace("(TW)", "")
-                last_name, first_name = player_name.split(", ")
-                player_name = f"{first_name} {last_name}"
-
-                players.append({"Player": player_name, "Wikipedia_Link": player_link})
-
-        return players
+        return extract_nba_players(roster_table)
     elif sport == "nfl":
-        players = []
-        for row in roster_table.find_all("tr"):  # Skip header row
-            for cols in row.find_all("td"):
-                for player in cols.find_all("li")[:-3]:
+        return extract_nfl_players(roster_table)
+    elif sport == "epl":
+        return extract_epl_players(roster_table)
+    else:
+        print(f"Sport '{sport}' not supported.")
+        return None
+
+
+def extract_nba_players(roster_table):
+    """Extract NBA player names and Wikipedia links from the roster table."""
+    players = []
+    for row in roster_table.find_all("tr")[2:]:  # Skip header row
+        cols = row.find_all("td")
+        if len(cols) > 3:
+            player_name = cols[2].text.strip()
+            print(player_name)
+            player_link = cols[2].find("a")["href"] if cols[2].find("a") else None
+
+            if player_link:
+                player_link = "https://en.wikipedia.org" + player_link  # Make full URL
+
+            # Format player name (convert "Last, First" to "First Last")
+            player_name = player_name.replace(". ", ".")
+            player_name = " ".join(unicodedata.normalize("NFKC", player_name).split())
+            player_name = re.sub(r"\(.*?\)", "", player_name).strip()
+            
+            if ", " in player_name:
+                last_name, first_name = player_name.split(", ")
+                try:
+                    first_name, suffix = first_name.split(" ")
+                    suffix = " " + suffix
+                except Exception:
+                    suffix = ""
+                player_name = f"{first_name} {last_name}{suffix}"
+
+            players.append({"Player": player_name, "Wikipedia_Link": player_link})
+
+    return players
+
+
+def extract_nfl_players(roster_table):
+    """Extract NFL player names and Wikipedia links from the roster table."""
+    players = []
+    for row in roster_table.find_all("tr"):
+        for cols in row.find_all("td"):
+            for player in cols.find_all("li"):
+                if not player.find_parent("div", class_="hlist"):  # Exclude hlist divs
                     try:
                         player_name = player.find("a").text.strip()
                         player_link = player.find("a")["href"] if player.find("a") else None
@@ -167,30 +186,28 @@ def fetch_roster_from_wikipedia(team_wiki_title, sport):
                         if player_link:
                             player_link = "https://en.wikipedia.org" + player_link  # Make full URL
 
-                        # player_name = player_name.replace("(TW)", "")
-                        # last_name, first_name = player_name.split(", ")
-                        # player_name = f"{first_name} {last_name}"
-
                         players.append({"Player": player_name, "Wikipedia_Link": player_link})
-                    except Exception:
-                        pass
-    elif sport == "epl":
-        players = []
-        for row in roster_table.find_all("tr")[2:]:  # Skip header row
-            cols = row.find_all("td")
-            # print([col for col in cols])
-            try:
-                player_name = cols[3].text.strip()
-                player_link = cols[3].find("a")["href"] if cols[3].find("a") else None
+                    except AttributeError:
+                        pass  # Skip if <a> tag is missing
 
-                if player_link:
-                    player_link = "https://en.wikipedia.org" + player_link  # Make full URL
+    return players
 
-                player_name = player_name.split("(")[0]
-                print(player_name)
-                players.append({"Player": player_name, "Wikipedia_Link": player_link})
-            except IndexError:
-                pass
+
+def extract_epl_players(roster_table):
+    """Extract EPL player names and Wikipedia links from the roster table."""
+    players = []
+    for row in roster_table.find_all("tr")[2:]:  # Skip header row
+        cols = row.find_all("td")
+        try:
+            player_name = cols[3].text.strip().split(" (")[0]  # Remove extra text
+            player_link = cols[3].find("a")["href"] if cols[3].find("a") else None
+
+            if player_link:
+                player_link = "https://en.wikipedia.org" + player_link  # Make full URL
+
+            players.append({"Player": player_name, "Wikipedia_Link": player_link})
+        except IndexError:
+            pass  # Skip rows with missing data
 
     return players
 
@@ -215,41 +232,54 @@ def fetch_pageviews(wikipedia_url):
         print(f"Error fetching pageviews for {wikipedia_title}: {response.status_code}")
         return None
 
-# Step 4: Scrape Rosters & Get Player Pageviews
-all_team_df = {"Team": [], "Player": [], "Pageviews": []}
-all_team_rosters = {}
 
-sport = "nfl"
+def scrape_pageviews(sport):
+    # Mapping sports to team lists
+    sport_teams = {
+        "nba": nba_teams,
+        "nfl": nfl_teams,
+        "epl": epl_teams
+    }
 
-if sport == "nba":
-    teams = nba_teams
-elif sport == "nfl":
-    teams = nfl_teams
-elif sport == "epl":
-    teams = epl_teams
+    teams = sport_teams.get(sport, {})
 
-for team, wiki_title in teams.items():
-    roster = fetch_roster_from_wikipedia(wiki_title, sport)
-    if not roster:
-        continue  # Skip if no roster found
+    all_team_data = []
+    team_pageviews_data = []
 
-    team_roster = []
-    print(f"\n{team} Roster:")
+    for team, wiki_title in teams.items():
+        roster = fetch_roster_from_wikipedia(wiki_title, sport)
+        if not roster:
+            continue  # Skip teams without a roster
 
-    for player in roster:
-        pageviews = fetch_pageviews(player["Wikipedia_Link"])
-        print(f"{player['Player']} - {player['Wikipedia_Link']}: {pageviews if pageviews else 'No data'}")
+        print(f"\n{team} Roster:")
+        
+        team_roster = [
+            {
+                "Player": player["Player"],
+                "Wikipedia_Link": player["Wikipedia_Link"],
+                # "Pageviews": None
+                "Pageviews": fetch_pageviews(player["Wikipedia_Link"])
+            }
+            for player in roster
+        ]
 
-        team_roster.append({"Player": player["Player"], "Wikipedia_Link": player["Wikipedia_Link"], "Pageviews": pageviews})
-        all_team_df["Team"].append(team)
-        all_team_df["Player"].append(player["Player"])
-        all_team_df["Pageviews"].append(pageviews)
-        # print(all_team_df)
+        for player_data in team_roster:
+            print(f"{player_data['Player']} - {player_data['Wikipedia_Link']}: {player_data['Pageviews'] or 'No data'}")
+
+        all_team_data.extend([{"Team": team, **player_data} for player_data in team_roster])
+        team_pageviews = fetch_pageviews(f"https://en.wikipedia.org/wiki/{wiki_title}")
+        team_pageviews_data.append({"Team": team, "Pageviews": team_pageviews})
+        print(f"Team: {team} - Pageviews: {team_pageviews}")
+
         time.sleep(1)  # Sleep to avoid API rate limits
 
-    all_team_rosters[team] = team_roster
-    df = pd.DataFrame(all_team_df)
-    df.to_csv(f"{sport}.csv")
+    # Convert to DataFrame and save
+    df = pd.DataFrame(all_team_data)
+    df.to_csv(f"complete_{sport}_roster.csv", index=False)
+    team_df = pd.DataFrame(team_pageviews_data)
+    team_df.to_csv(f"{sport}_team_pageviews.csv", index=False)
+
+    
 
     #     # Database connection parameters
     # server = "knowball.database.windows.net"
