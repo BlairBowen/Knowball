@@ -1,6 +1,6 @@
 import React from "react";
 
-const AnswersNFL = ({ answers, score }) => {
+const AnswersNFL = ({ answers, score, maxScore }) => {
   // Number of answer slots
   const totalSlots = 5;
 
@@ -9,7 +9,10 @@ const AnswersNFL = ({ answers, score }) => {
       <div className="w-full border-4 border-black rounded-lg p-4">
         <ul className="space-y-2 font-pixel text-black">
           <li>
-            <div className="p-4">Score: {score}</div>
+            <div className="p-4">
+              Score: {score}<br />
+              Maximum: {maxScore}
+            </div>
           </li>
           {/* Render answer slots */}
           {[...Array(totalSlots)].map((_, index) => {

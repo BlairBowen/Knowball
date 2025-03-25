@@ -10,6 +10,7 @@ const NFL = () => {
   const [players, setPlayers] = useState([]);
   const [question, setQuestion] = useState("");
   const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [maxScore, setMaxScore] = useState(0);
   
   // These don't come from the database!
   const [score, setScore] = useState(0);
@@ -39,6 +40,7 @@ const NFL = () => {
         const data = await response.json();
         setQuestion(data.question); // Save the question
         setCorrectAnswers(data.answers); // Save the answer set
+        setMaxScore(data.max); // Save the max possible score
       } catch (error) {
         console.error("Error fetching trivia:", error);
       }
@@ -90,7 +92,11 @@ const NFL = () => {
           </div>
           <div className='w-1/2'>
             {/* Pass answers to AnswersNFL to display them */}
-            <AnswersNFL answers={answers} score={score} />
+            <AnswersNFL
+              answers={answers}
+              score={score}
+              maxScore={maxScore}
+            />
           </div>
         </div>
 
