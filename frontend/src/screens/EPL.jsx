@@ -10,6 +10,7 @@ const EPL = () => {
   const [players, setPlayers] = useState([]);
   const [question, setQuestion] = useState("");
   const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [maxScore, setMaxScore] = useState(0);
   
   // These don't come from the database!
   const [score, setScore] = useState(0);
@@ -39,6 +40,7 @@ const EPL = () => {
         const data = await response.json();
         setQuestion(data.question); // Save the question
         setCorrectAnswers(data.answers); // Save the answer set
+        setMaxScore(data.max); // Save the max possible score
       } catch (error) {
         console.error("Error fetching trivia:", error);
       }
@@ -90,14 +92,18 @@ const EPL = () => {
           </div>
           <div className='w-1/2'>
             {/* Pass answers to AnswersEPL to display them */}
-            <AnswersEPL answers={answers} score={score} />
+            <AnswersEPL
+              answers={answers}
+              score={score}
+              maxScore={maxScore}
+            />
           </div>
         </div>
 
         {gameOver && (
           <div className="fixed inset-0 flex items-center justify-center z-50">
               <div className="bg-gray-100 border-4 border-black rounded-lg p-4 w-200 text-black font-pixel !shadow-2xl shadow-orange-400">
-                  <h2 className="text-center text-2xl mb-4">Your Score: {score}</h2>
+                  <h2 className="text-center text-2xl mb-4">Your Score: {Math.round(score)}</h2>
                   <div className="flex justify-between gap-4">
                       <button
                         onClick={() => window.location.href = '/'}
