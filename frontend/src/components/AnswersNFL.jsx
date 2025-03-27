@@ -10,8 +10,8 @@ const AnswersNFL = ({ answers, score, maxScore }) => {
         <ul className="space-y-2 font-pixel text-black">
           <li>
             <div className="p-4">
-              Score: {score}<br />
-              Maximum: {maxScore}
+              Score: {Math.round(score)}<br />
+              Maximum: {Math.round(maxScore)}
             </div>
           </li>
           {/* Render answer slots */}
@@ -30,7 +30,11 @@ const AnswersNFL = ({ answers, score, maxScore }) => {
                   }`}
                 >
                   {/* Render the answer or a blank space if the slot is not filled */}
-                  {answer ? (answer.isCorrect ? `${answer.player} +${answer.score}` : answer.player) : "___"}
+                  {answer
+                    ? answer.isCorrect
+                      ? `${answer.player} +${Math.round(answer.score)}` // Round score
+                      : answer.player
+                    : "___"}
                 </div>
               </li>
             );
