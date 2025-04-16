@@ -23,12 +23,6 @@ erDiagram
     string Player
     types StatsAndInfo
   }
-  LEADERBOARD {
-    int ID
-    string Name
-    int Score
-    string League
-  }
   TRIVIA {
     int ID
     string Question
