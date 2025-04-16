@@ -15,7 +15,7 @@ npm run dev
 
 3.	You should see something like this.
 
-![Desired outcome of step 3](./step3result.png)
+![Desired outcome of step 3](./images/step3result.png)
 
 4.	Click the link to run Knowball in your browser.
 
@@ -23,7 +23,7 @@ npm run dev
 
 Gameplay begins on the main menu. Choose a game mode (basketball, soccer, or football) by clicking on the corresponding icon.
 
-![Knowball main menu](./mainmenu.png)
+![Knowball main menu](./images/mainmenu.png)
 
 For this example, I chose basketball. After a brief loading period, trivia will be pushed to the screen. Then, all you need to do is answer
 it with the names of five athletes; the more obscure they are, the more points you’ll get. To answer, begin typing in the input box. The dropdown
@@ -36,12 +36,12 @@ name you’re looking for. The following are further notes on the interface.
 - Duplicate answers are blocked.
 - “Maximum” displays the best possible score for the question.
 
-![Knowball gameplay](./gameplay.png)
+![Knowball gameplay](./images/gameplay.png)
 
 After submitting five answers, you’ll receive a pop-up with your score and two options: return to the main menu or try the game mode again. The choice is
 yours!
 
-![Knowball endgame](./endgame.png)
+![Knowball endgame](./images/endgame.png)
 
 ## FAQ
 
