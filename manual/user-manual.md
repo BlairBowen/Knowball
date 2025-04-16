@@ -52,4 +52,4 @@ yours!
 #### How is obscurity calculated?
 
 > The scores are computed by our Obscurity Engine, an ML model that considers athletes’ career statistics and social following. For more information, see
-> [our poster]([https://github.com/BlairBowen/Knowball/blob/main/presentations/knowball-poster.pdf](https://github.com/BlairBowen/Knowball/blob/main/knowball-poster.pdf)).
+> [our poster](https://github.com/BlairBowen/Knowball/blob/main/knowball-poster.pdf).
