@@ -1,4 +1,4 @@
-# Individual Assessment
+# Initial Assessment
 
 > Ben Cimini (ciminibb@mail.uc.edu), CS
 
