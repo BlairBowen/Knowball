@@ -1,4 +1,0 @@
-SQL Database Server
--------------------------------------------------------------------------------
-username: kbserver
-password: ciminibb$bowenbv$king3ss$
