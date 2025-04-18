@@ -18,29 +18,31 @@ Read the full description here: [project-description.md](https://github.com/Blai
 
 ## Table of Contents
 
-#### User Stories and Design Diagrams
+#### Designs
 
-- [user-stories.md](https://github.com/BlairBowen/Knowball/blob/main/design/user-stories.md)
-- [diagrams](https://github.com/BlairBowen/Knowball/tree/main/design/diagrams)
-- [diagram-description.md](https://github.com/BlairBowen/Knowball/blob/main/design/diagrams/diagram-description.md)
+- [Database](https://github.com/BlairBowen/Knowball/tree/main/design/database)
+- [System](https://github.com/BlairBowen/Knowball/tree/main/design/system)
+- [UI](https://github.com/BlairBowen/Knowball/tree/main/design/ui)
 
-#### Project Tasks and Timeline
+#### Test Plan: [test-plan.docx](https://github.com/BlairBowen/Knowball/blob/main/test-plan.docx)
 
-- [task-list.md](https://github.com/BlairBowen/Knowball/blob/main/tasks/task-list.md)
-- [milestones-timeline-effort.xlsx](https://github.com/BlairBowen/Knowball/blob/main/tasks/milestones-timeline-effort.xlsx)
+#### User Manual: [manual/user-manual.md](https://github.com/BlairBowen/Knowball/blob/main/manual/user-manual.md)
 
-#### ABET Concerns Essay: [abet-concerns.md](https://github.com/BlairBowen/Knowball/blob/main/essays/abet-concerns.md)
+#### Presentations
 
-#### PPT Slideshow: [presentations](https://github.com/BlairBowen/Knowball/tree/main/presentations)
+- [Fall](https://github.com/BlairBowen/Knowball/tree/main/presentations/fall)
+- [Spring](https://github.com/BlairBowen/Knowball/tree/main/presentations/spring)
 
-#### Self-Assessment Essays
+#### Poster: [knowball-poster.pdf](https://github.com/BlairBowen/Knowball/blob/main/knowball-poster.pdf)
 
-- [ben-pre-assessment.md](https://github.com/BlairBowen/Knowball/blob/main/essays/ben-pre-assessment.md)
-- [blair-pre-assessment.md](https://github.com/BlairBowen/Knowball/blob/main/essays/blair-pre-assessment.md)
-- [stetson-pre-assessment.md](https://github.com/BlairBowen/Knowball/blob/main/essays/stetson-pre-assessment.md)
+#### Assessments
 
-#### Professional Biographies: [bios](https://github.com/BlairBowen/Knowball/tree/main/bios)
+- [Fall](https://github.com/BlairBowen/Knowball/tree/main/essays/fall-assessments)
+- [Spring](https://github.com/BlairBowen/Knowball/tree/main/essays/spring-assessments)
 
-#### Budget: [budget.md](https://github.com/BlairBowen/Knowball/blob/main/appendix/budget.md)
+#### Contributions
+
+- [Hours](https://github.com/BlairBowen/Knowball/tree/main/contributions/hours)
+- [contributions/expense-summary.md](https://github.com/BlairBowen/Knowball/blob/main/contributions/expense-summary.md)
 
 #### Appendix: [appendix](https://github.com/BlairBowen/Knowball/tree/main/appendix)
